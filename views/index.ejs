@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Appointment Application</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background: #f8f9fa; padding-top: 70px; }
+    .hero {
+      background: linear-gradient(135deg, #6f4ffe, #7c6ed8);
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+      border-radius: 0 0 50px 50px;
+    }
+    .hero h1 { font-size: 3rem; font-weight: bold; }
+    .hero p { font-size: 1.2rem; }
+
+
+    /* Steps Section */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.steps .box {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.steps .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.steps .box img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.steps .box h3 {
+    font-size: 1.2rem;
+    color: #1a2a6c;
+}
+
+/* Section Heading */
+.container h1 {
+    font-size: 2.5rem;
+    color: #1a2a6c;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container h1 span {
+    color: #007bff; /* accent color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container h1 {
+        font-size: 2rem;
+    }
+}
+
+    /* Speciality Section */
+.speciality {
+    padding: 60px 20px;
+    background: #f7f9fc; /* light, clean background */
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.speciality .heading {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #1a2a6c;
+}
+
+.speciality .heading span {
+    color: #007bff; /* accent color for emphasis */
+}
+
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.box {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.box .image {
+    background: #e9f0ff;
+    padding: 20px;
+}
+
+.box .image img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.box .content {
+    padding: 20px;
+}
+
+.box .content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #1a2a6c;
+}
+
+.box .content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .speciality .heading {
+        font-size: 2rem;
+    }
+}
+
+  </style>
+</head>
+<body>
+  <%- include("partials/navbar"); %>
+
+<!-- Hero Section Starts -->
+<section class="hero" style="display: flex; align-items: center; justify-content: center; padding: 80px 20px; background: #f5f8fa;">
+    <div class="hero-content" style="max-width: 600px; margin-right: 40px;">
+        <h1 style="font-size: 3rem; margin-bottom: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a2a6c;">
+            Welcome to <span style="color: #00bfff;">DrClinic</span>
+        </h1>
+        <p style="font-size: 1.2rem; margin-bottom: 30px; color: #555;">Book your appointment easily with just a few clicks. Get expert medical care from the comfort of your home.</p>
+        <a href="/book" class="btn btn-primary btn-lg" style="padding: 12px 30px; font-weight: bold; border-radius: 8px;">Book Appointment</a>
+    </div>
+    <div class="hero-image">
+        <img src="https://img.freepik.com/free-vector/doctor-consultation-concept-illustration_114360-8132.jpg?w=1380&t=st=1695436205~exp=1695436805~hmac=45ff87f2d46b4b6f4e2e9d9b95c6f6d2f4aef59c" 
+             alt="Doctor Illustration" style="max-width: 500px; width: 100%; border-radius: 15px;">
+    </div>
+</section>
+<!-- Hero Section Ends -->
+
+  <br>
+
+  <!-- Steps Section Starts -->
+<div class="container">
+    <h1><center>How It <span>Works?</span></center></h1>
+
+    <section class="steps">
+
+        <div class="box">
+            <img src="https://img.icons8.com/color/96/000000/calendar.png" alt="Choose Appointment">
+            <h3>Choose Your Appointment</h3>
+        </div>
+
+        <div class="box">
+            <img src="https://img.icons8.com/color/96/000000/doctor-male.png" alt="Doctor Confirmation">
+            <h3>Get Doctor Confirmation</h3>
+        </div>
+
+        <div class="box">
+            <img src="https://img.icons8.com/color/96/000000/paypal.png" alt="Make Payment">
+            <h3>Make Payment Securely</h3>
+        </div>
+
+        <div class="box">
+            <img src="https://img.icons8.com/color/96/000000/stethoscope.png" alt="Attend Appointment">
+            <h3>Attend Your Appointment</h3>
+        </div>
+
+    </section>
+</div>
+<!-- Steps Section Ends -->
+
+
+  <!-- Speciality Section Starts -->
+<section class="speciality" id="speciality">
+  <h1 class="heading">Our <span>Specialities</span></h1>
+  <div class="box-container">
+      <div class="box">
+          <div class="image">
+              <img src="https://img.icons8.com/color/96/000000/heart-with-pulse.png" alt="Cardiology">
+          </div>
+          <div class="content">
+              <h3>Cardiology</h3>
+              <p>Our cardiologists provide expert care for heart-related conditions, including heart disease, hypertension, and preventive heart health check-ups.</p>
+          </div>
+      </div>
+
+      <div class="box">
+          <div class="image">
+              <img src="https://img.icons8.com/color/96/000000/stethoscope.png" alt="General Medicine">
+          </div>
+          <div class="content">
+              <h3>General Medicine</h3>
+              <p>Comprehensive healthcare for adults, including diagnosis, treatment, and preventive care for a wide range of medical conditions.</p>
+          </div>
+      </div>
+
+      <div class="box">
+          <div class="image">
+              <img src="https://img.icons8.com/color/96/000000/baby.png" alt="Pediatrics">
+          </div>
+          <div class="content">
+              <h3>Pediatrics</h3>
+              <p>Specialized care for infants, children, and adolescents, covering routine check-ups, vaccinations, and treatment of illnesses.</p>
+          </div>
+      </div>
+
+     
+<div class="box">
+    <div class="image">
+        <img src="https://img.icons8.com/color/96/000000/brain.png" alt="Neurology">
+    </div>
+    <div class="content">
+        <h3>Neurology</h3>
+        <p>Specialized care for brain and nervous system disorders, including migraines, epilepsy, stroke, and neurodegenerative diseases.</p>
+    </div>
+</div>
+
+
+<div class="box">
+    <div class="image">
+        <img src="https://img.icons8.com/color/96/000000/skeleton.png" alt="Orthopedics">
+    </div>
+    <div class="content">
+        <h3>Orthopedics</h3>
+        <p>Expert treatment for musculoskeletal issues, including fractures, joint problems, sports injuries, and rehabilitation therapy.</p>
+    </div>
+</div>
+
+
+      <div class="box">
+          <div class="image">
+              <img src="https://img.icons8.com/color/96/000000/dermatology.png" alt="Dermatology">
+          </div>
+          <div class="content">
+              <h3>Dermatology</h3>
+              <p>Expert skin care services for conditions like acne, eczema, skin infections, and cosmetic dermatology procedures.</p>
+          </div>
+      </div>
+
+      <div class="box">
+          <div class="image">
+              <img src="https://img.icons8.com/color/96/000000/tooth.png" alt="Dental Care">
+          </div>
+          <div class="content">
+              <h3>Dental Care</h3>
+              <p>Comprehensive dental services, including routine check-ups, cleaning, fillings, extractions, and cosmetic dentistry.</p>
+          </div>
+      </div>
+
+      <div class="box">
+          <div class="image">
+              <img src="https://img.icons8.com/color/96/000000/ambulance.png" alt="Emergency Services">
+          </div>
+          <div class="content">
+              <h3>Emergency Services</h3>
+              <p>24/7 emergency care for urgent medical conditions, accidents, and injuries, ensuring prompt and effective treatment.</p>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- Speciality Section Ends -->
+
+  
+  <%- include("partials/footer"); %>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
