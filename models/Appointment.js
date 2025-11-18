@@ -10,4 +10,7 @@ const appointmentSchema = new mongoose.Schema({
     status: { type: String, default: "pending" }
 });
 
+
+
 module.exports = mongoose.model("Appointment", appointmentSchema);
+

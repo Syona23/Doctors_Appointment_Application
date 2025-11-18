@@ -4,16 +4,28 @@ const mongoose = require("mongoose");
 const path = require("path");
 const app = express();
 const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const adminConfig = require("./config/admin");
 
-// ===== Session setup =====
+
+
+// setup
 app.use(session({
-  secret: "d9F!4bQ@7xTz#1kLmN$2pR^6sVw*8hJ",
+  secret: adminConfig.jwtSecret,
   resave: false,
   saveUninitialized: true
 }));
 
-// ===== Middleware to protect admin page =====
+// cookies for JWT
+app.use(cookieParser());
+
+
+// middlewares
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", "ejs");
+
+// middleware admin page
 function isAdmin(req, res, next) {
   if (req.session && req.session.isAdmin) {
     return next();
@@ -22,22 +34,32 @@ function isAdmin(req, res, next) {
   }
 }
 
-// ===== Database Connection =====
-mongoose.connect("mongodb://localhost:27017/appointmentsDB", {
+// database
+const dotenv = require('dotenv');
+dotenv.config();
+const dbType = process.env.DB_TYPE || 'mongodb';
+if (dbType === 'postgres') {
+  const adapter = require('./db/adapter');
+  // sync sequelize
+  adapter.ensureSync();
+} else {
+  mongoose.connect("mongodb://localhost:27017/appointmentsDB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-});
+  });
+}
 
-// ===== Middlewares =====
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
-app.set("view engine", "ejs");
+//support
+const supportRoutes = require("./routes/get/support");
+app.use("/", supportRoutes);
 
-// ===== Routes =====
+
+
+// routes 
 const appointmentRoutes = require("./routes/get/appointments");
 app.use("/", appointmentRoutes);
 
-// ===== Server Start =====
+// server
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
