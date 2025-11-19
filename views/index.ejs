@@ -140,6 +140,61 @@
     }
 }
 
+.accordion-button {
+  border-radius: 16px !important;
+  background-color: #fff;
+  padding: 18px 22px;
+  font-size: 18px;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #5b23dd;
+  background-color: #f7f3ff;
+}
+
+.accordion-item {
+  border-radius: 20px !important;
+}
+
+.accordion-body {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border:
+
+} 
+
+.blog-card {
+  transition: transform .25s ease;
+  background: #fff;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-img-wrapper {
+  width: 100%;
+  height: 220px; /* Makes all cards equal height */
+  overflow: hidden;
+}
+
+.blog-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* makes image perfect */
+  transition: transform .3s ease;
+}
+
+.blog-card:hover .blog-img {
+  transform: scale(1.08);
+}
+
+
   </style>
 </head>
 <body>
@@ -284,6 +339,160 @@
 </section>
 <!-- Speciality Section Ends -->
 
+<!-- ======================================
+   Health & Wellness Blog (Clean Modern UI)
+======================================= -->
+<div class="container mt-5 mb-5">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold">Health & Wellness Blog</h2>
+    <a href="#" class="text-primary fw-semibold text-decoration-none">View all articles →</a>
+  </div>
+
+  <div class="row gy-4">
+
+    <!-- ARTICLE CARD 1 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="blog-card shadow-sm rounded-4 overflow-hidden">
+        <div class="blog-img-wrapper">
+          <img src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg" class="blog-img" alt="">
+        </div>
+
+        <div class="p-3">
+          <span class="badge bg-light text-dark mb-2">Lifestyle</span>
+          <h5 class="fw-bold mb-2">10 Simple Habits for a Healthier Lifestyle</h5>
+          <p class="text-muted small">
+            Discover simple daily routines that can significantly boost your overall well-being…
+          </p>
+
+          <div class="d-flex justify-content-between">
+            <span class="text-muted small">June 12, 2023</span>
+            <a href="#" class="text-primary fw-semibold small">Read more →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTICLE CARD 2 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="blog-card shadow-sm rounded-4 overflow-hidden">
+        <div class="blog-img-wrapper">
+          <img src="https://blog.lucilleroberts.com/wp-content/uploads/2014/03/nutrition-label.jpg" class="blog-img" alt="">
+        </div>
+
+        <div class="p-3">
+          <span class="badge bg-light text-dark mb-2">Nutrition</span>
+          <h5 class="fw-bold mb-2">Understanding Nutrition Labels: A Complete Guide</h5>
+          <p class="text-muted small">
+            Learn how to decode nutrition labels and make healthier food decisions every day…
+          </p>
+
+          <div class="d-flex justify-content-between">
+            <span class="text-muted small">May 28, 2023</span>
+            <a href="#" class="text-primary fw-semibold small">Read more →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTICLE CARD 3 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="blog-card shadow-sm rounded-4 overflow-hidden">
+        <div class="blog-img-wrapper">
+          <img src="https://images.pexels.com/photos/4064834/pexels-photo-4064834.jpeg" class="blog-img" alt="">
+        </div>
+
+        <div class="p-3">
+          <span class="badge bg-light text-dark mb-2">Mental Health</span>
+          <h5 class="fw-bold mb-2">The Importance of Mental Health Check-Ups</h5>
+          <p class="text-muted small">
+            Why mental health check-ups are just as important as regular physical exams…
+          </p>
+
+          <div class="d-flex justify-content-between">
+            <span class="text-muted small">April 15, 2023</span>
+            <a href="#" class="text-primary fw-semibold small">Read more →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Health & Wellness Blog Ends -->
+
+<!-- ==========================
+     Frequently Asked Questions
+============================== -->
+<div class="container mt-5 mb-5">
+
+  <h2 class="text-center fw-bold mb-4">Frequently Asked Questions</h2>
+
+  <div class="accordion" id="faqAccordion">
+
+    <!-- FAQ 1 -->
+    <div class="accordion-item border-0 mb-3 shadow-sm rounded-4">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed rounded-4 fw-semibold" type="button"  
+                data-bs-toggle="collapse" data-bs-target="#faq1">
+          How do I book an appointment?
+        </button>
+      </h2>
+      <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          You can easily book an appointment using our online booking page. Simply enter your details, select your preferred date & time, and submit the form.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="accordion-item border-0 mb-3 shadow-sm rounded-4">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed rounded-4 fw-semibold" type="button"  
+                data-bs-toggle="collapse" data-bs-target="#faq2">
+          Can I reschedule or cancel my appointment?
+        </button>
+      </h2>
+      <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes, you can reschedule or cancel your appointment by contacting our support team or messaging us through the support page.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="accordion-item border-0 mb-3 shadow-sm rounded-4">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed rounded-4 fw-semibold" type="button"  
+                data-bs-toggle="collapse" data-bs-target="#faq3">
+          Is my medical information secure?
+        </button>
+      </h2>
+      <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Absolutely. Your information is stored securely, following strict data protection standards. Only authorized personnel can access it.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="accordion-item border-0 mb-3 shadow-sm rounded-4">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed rounded-4 fw-semibold" type="button"  
+                data-bs-toggle="collapse" data-bs-target="#faq4">
+          Do you offer virtual consultations?
+        </button>
+      </h2>
+      <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes! We provide secure virtual consultations. Book your time slot and select the virtual option during appointment booking.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Frequently Asked Questions Ends -->
   
   <%- include("partials/footer"); %>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
