@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Support = require("../../models/Support");
+const { Support } = require("../../db/adapter");
 
 // Support form page
 router.get("/support", (req, res) => {
@@ -36,7 +36,7 @@ router.get("/admin/support", isAdmin, async (req, res) => {
         }
         tickets.sort((a, b) => new Date(b.date) - new Date(a.date));
         // use the admin folder view which includes actions
-        res.render("admin/support_messages", { tickets });
+        res.render("support_messages", { tickets });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error loading tickets');
@@ -50,7 +50,7 @@ router.get("/admin/support/:id", isAdmin, async (req, res) => {
         if (!ticket) return res.status(404).send("Ticket not found");
         // normalize
         const t = ticket.dataValues ? ticket.dataValues : (ticket.toObject ? ticket.toObject() : ticket);
-        res.render("admin/support_view", { ticket: t });
+        res.render("support_view", { ticket: t });
     } catch (err) {
         console.error(err);
         res.status(500).send("Error loading ticket");

@@ -54,3 +54,5 @@ if (usePostgres) {
     }
   };
 }
+console.log("DB_TYPE =", process.env.DB_TYPE);
+

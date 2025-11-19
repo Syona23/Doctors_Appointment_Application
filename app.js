@@ -1,3 +1,5 @@
+require('dotenv').config();
+console.log("Loaded DB_TYPE:", process.env.DB_TYPE);
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
